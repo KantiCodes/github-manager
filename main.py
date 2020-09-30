@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-from project.api_handler import api
+import github_api
 
 if __name__ == '__main__':
     sg.theme('DarkAmber')  # Add a touch of color
@@ -22,20 +22,20 @@ if __name__ == '__main__':
             print('You entered ', values[0])
 
             if user_id and team_id:
-                sg.popup(api.invite_user(user_id, [team_id,]))
+                sg.popup(github_api.invite_user(user_id, [team_id,]))
 
             else:
                 sg.popup('provide correct username and team name')
 
         if event == 'save user':
-            user_id = api.get_user_id(values[0])
+            user_id = github_api.get_user_id(values[0])
             if user_id:
                 sg.popup(f"id : {user_id}")
             else:
                 sg.popup('incorrect github username')
         if event == 'save team':
             #print(f"this is the name of the team: {values[1]}")
-            team_id = api.get_team_id(values[1])
+            team_id = github_api.get_team_id(values[1])
             sg.popup(f"id : {team_id}")
             print(team_id)
 
