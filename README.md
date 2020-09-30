@@ -4,6 +4,6 @@ A small and useful software with good looking UI that allows you to manage githu
 # UI
 
 # Requirements
-requests
-python-dotenv
-PySimpleGUI
+requests  
+python-dotenv  
+PySimpleGUI  
