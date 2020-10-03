@@ -1,12 +1,12 @@
 import PySimpleGUI as sg
-import github_api
+from app import github_api
 
 if __name__ == '__main__':
     sg.theme('DarkAmber')  # Add a touch of color
     # All the stuff inside your window.
     layout = [[sg.Text('This is a simple tool to add a person with specific username to specific team')],
               [sg.Text('Enter github user'), sg.InputText(default_text='github_api username'), sg.Button('save user')],
-              [sg.Text('Enter the team name'), sg.InputText(default_text='github_team'), sg.Button('save team')],
+              [sg.Text('Enter the team name'), sg.InputText     (default_text='github_team'), sg.Button('save team')],
               [sg.Button('Ok'), sg.Button('cancel')]]
 
     # Create the Window
@@ -22,7 +22,7 @@ if __name__ == '__main__':
             print('You entered ', values[0])
 
             if user_id and team_id:
-                sg.popup(github_api.invite_user(user_id, [team_id,]))
+                sg.popup(github_api.invite_user(user_id, [team_id, ]))
 
             else:
                 sg.popup('provide correct username and team name')

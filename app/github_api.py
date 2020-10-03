@@ -3,12 +3,12 @@ import os
 import requests
 from dotenv import load_dotenv
 import json
-
 load_dotenv() # Load env variables
 CORE_API = 'https://api.github.com/'
 ORG = os.getenv('GITHUB_ORGANISATION')
 USERNAME = os.getenv('GITHUB_USERNAME')
 PASSWORD = os.getenv('GITHUB_PASSWORD')
+
 
 def get_user_id(github_username):
     """
@@ -64,4 +64,3 @@ def invite_user(user_id, team_ids):
         return response
     else:
         return False
-
